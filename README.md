@@ -61,3 +61,6 @@ All package dependencies are listed in the `requirements.txt` file.
 *   Support network play for multiple human players.
 *   Add more sophisticated AI strategies.
 *   Incorporate user profiles and personalized game experiences.
+
+
+$env:PYTHONPATH = $pwd
