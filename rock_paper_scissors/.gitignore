@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment directories (if applicable)
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# Distributions directories created by packaging tools like setuptools or distutils
+dist/
+build/
+*.egg-info/
