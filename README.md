@@ -25,10 +25,11 @@ All package dependencies are listed in the `requirements.txt` file.
 
 ## Setup Instructions
 
-1. Clone the repository:
+1. Go to the repo:
 
     ```
     cd rock_paper_scissors
+    $env:PYTHONPATH = $pwd
     ```
 
 2. Run the setup script:
@@ -63,4 +64,3 @@ All package dependencies are listed in the `requirements.txt` file.
 *   Incorporate user profiles and personalized game experiences.
 
 
-$env:PYTHONPATH = $pwd
