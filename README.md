@@ -32,8 +32,6 @@ Game Theory strategy could also be used along with existing strategies for bette
 
 - **Comprehensive Unit Testing:** The project includes a suite of unit tests that cover critical components and functionalities. Each module has corresponding tests that validate its behavior, ensuring code reliability and reducing the likelihood of bugs.
 
-- **Continuous Integration (CI):** The project is set up with continuous integration tools (e.g., GitHub Actions or Travis CI) to automatically run tests on every commit or pull request. This ensures that new changes do not break existing functionality.
-
 - **Documentation:** Inline comments and docstrings are used throughout the codebase to explain complex logic and provide context for future developers. Additionally, a comprehensive README file outlines project setup, usage, and features.
 
 
@@ -123,5 +121,6 @@ Sample Test Results
 *   Support network play for multiple human players.
 *   Add more sophisticated strategies.
 *   Incorporate user profiles and personalized game experiences.
+*   Extend the game to support additional moves (e.g., Rock Paper Scissors Lizard Spock).
 
 
