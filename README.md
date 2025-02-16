@@ -99,7 +99,7 @@ This script runs multiple simulations of the Rock-Paper-Scissors game with varyi
 1. Run simulate.py
 1. Navigate to the root directory of the project (the one containing the `tests` folder).
 ```
-    cd rock_paper_scissors
+    cd rock_paper_scissors_python
 ```
 
 2. Run the tests using `pytest`:
