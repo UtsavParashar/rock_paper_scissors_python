@@ -7,12 +7,12 @@ Game Theory strategy could also be used along with existing strategies for bette
 ## Features
 
 - **Engaging Gameplay:** Play the classic game of Rock-Paper-Scissors against an intelligent Computer opponent.
-- **Adaptive Strategies:** Computer program uses a combined strategy leveraging Reinforcement Learning, Markov Models, and Game Theory to learn and adapt to your playing style.
+- **Adaptive Strategies:** Computer program uses a combined strategy leveraging Reinforcement Learning and Markov Models to learn and adapt to your playing style.
 - **Reinforcement Learning:** The program learns from past games, improving its decision-making over time through a Q-learning approach.
 - **Markov Model Prediction:** The program analyzes your move history using a Markov model to predict your next move based on patterns.
 - **Customizable History Length:** Adjust the length of the move history used by the computer to influence its predictive capabilities.
 - **Exploration vs. Exploitation:** Balances exploration of new strategies with exploitation of learned patterns for optimal performance.
-- **Detailed Game Output:** View a clear record of each round, including your choice, the c's choice, and the outcome.
+- **Detailed Game Output:** View a clear record of each round, including your choice, the computer's choice, and the outcome.
 - **Comprehensive Unit Tests:** Ensures code reliability and correctness through a suite of automated tests.
 
 ## Technical Design Choices
@@ -21,7 +21,7 @@ Game Theory strategy could also be used along with existing strategies for bette
   - `game.py`: Manages the game flow and interactions between players.
   - `player.py`: Defines player behavior and attributes.
   - `rules.py`: Implements the game rules and determines outcomes.
-  - `strategy.py`: Contains AI strategies for decision-making.
+  - `strategy.py`: Contains strategies for decision-making.
   - `constants.py`: Centralizes constant values used throughout the project.
 
 - **Design Patterns:**
@@ -52,7 +52,7 @@ All package dependencies are listed in the `requirements.txt` file.
 
 ## Setup Instructions
 
-1. Go to the repo:
+1. Go to the project directory:
 
     ```
     cd rock_paper_scissors
