@@ -1,25 +1,40 @@
 # Rock-Paper-Scissors Game
 
-A production-level Python implementation of the Rock-Paper-Scissors game with an intelligent model that learns and adapts to human moves.
-
+A production-level Python implementation of the Rock-Paper-Scissors game for an human to play against an intelligent model using Reinforcement learning and Markov model that learns and adapts to human moves.
 
 
 ## Features
 
-- **Engaging Gameplay:** Play the classic game of Rock-Paper-Scissors against an intelligent AI opponent.
-- **Adaptive AI:** The AI uses a combined strategy leveraging Reinforcement Learning, Markov Models, and Game Theory to learn and adapt to your playing style.
-- **Reinforcement Learning:** The AI learns from past games, improving its decision-making over time through a Q-learning approach.
-- **Markov Model Prediction:** The AI analyzes your move history using a Markov model to predict your next move based on patterns.
-- **Customizable History Length:** Adjust the length of the move history used by the AI to influence its predictive capabilities.
+- **Engaging Gameplay:** Play the classic game of Rock-Paper-Scissors against an intelligent Computer opponent.
+- **Adaptive Strategies:** Computer program uses a combined strategy leveraging Reinforcement Learning, Markov Models, and Game Theory to learn and adapt to your playing style.
+- **Reinforcement Learning:** The program learns from past games, improving its decision-making over time through a Q-learning approach.
+- **Markov Model Prediction:** The program analyzes your move history using a Markov model to predict your next move based on patterns.
+- **Customizable History Length:** Adjust the length of the move history used by the computer to influence its predictive capabilities.
 - **Exploration vs. Exploitation:** Balances exploration of new strategies with exploitation of learned patterns for optimal performance.
-- **Detailed Game Output:** View a clear record of each round, including your choice, the AI's choice, and the outcome.
+- **Detailed Game Output:** View a clear record of each round, including your choice, the c's choice, and the outcome.
 - **Comprehensive Unit Tests:** Ensures code reliability and correctness through a suite of automated tests.
 
-## Design Choices
+## Technical Design Choices
 
-*   **Object-Oriented Programming:** The game is structured using classes for `Player`, `Rules`, `Strategy`, and `Game`, promoting reusability and maintainability.
-*   **Reinforcement Learning and Regret Matching:** The AI employs a combined strategy to adapt to the player's behavior.
-*   **Asynchronous Operations:** The game logic is designed to support asynchronous operations, allowing for better responsiveness and scalability.
+- **Modular Architecture:** The project is organized into distinct modules, each responsible for a specific aspect of the game. This modularity enhances code maintainability and readability. Key modules include:
+  - `game.py`: Manages the game flow and interactions between players.
+  - `player.py`: Defines player behavior and attributes.
+  - `rules.py`: Implements the game rules and determines outcomes.
+  - `strategy.py`: Contains AI strategies for decision-making.
+  - `constants.py`: Centralizes constant values used throughout the project.
+
+- **Design Patterns:**
+  - **Strategy Pattern:** Utilized to encapsulate various AI decision-making strategies. This allows for easy swapping and testing of different strategies without modifying the core game logic, promoting flexibility and scalability.
+  - **Observer Pattern:** Implemented to notify players of game state changes (e.g., when a round ends or a player wins). This decouples the game logic from the user interface, allowing for easier updates and modifications to either component independently.
+
+- **Test-Driven Development (TDD):** The project follows a test-driven development approach, ensuring that tests are written before implementing features. This practice helps in defining clear requirements and facilitates refactoring while maintaining functionality.
+
+- **Comprehensive Unit Testing:** The project includes a suite of unit tests that cover critical components and functionalities. Each module has corresponding tests that validate its behavior, ensuring code reliability and reducing the likelihood of bugs.
+
+- **Continuous Integration (CI):** The project is set up with continuous integration tools (e.g., GitHub Actions or Travis CI) to automatically run tests on every commit or pull request. This ensures that new changes do not break existing functionality.
+
+- **Documentation:** Inline comments and docstrings are used throughout the codebase to explain complex logic and provide context for future developers. Additionally, a comprehensive README file outlines project setup, usage, and features.
+
 
 ## Python Scripts in `src/`
 
