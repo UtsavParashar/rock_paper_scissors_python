@@ -18,7 +18,7 @@ class Strategy(ABC):
         pass
 
 class CombinedStrategy(Strategy):
-    """Combines RL, Markov Modeling, and Game Theory for an adaptive AI."""
+    """Combines RL, Markov Modeling for an adaptive Strategy."""
 
     def __init__(self, epsilon=0.1, learning_rate=0.1, markov_order=1, initial_exploration_rounds=10):
         """Initializes the strategy with learning parameters and data structures."""
@@ -47,12 +47,8 @@ class CombinedStrategy(Strategy):
         if predicted_move:
             best_action = self.counter_action(predicted_move)
             return best_action
-
-        # 2. Game Theory:
-        human_probs = self.estimate_human_probs(history)
-        best_action_gt = self.game_theory_action(human_probs)
         
-        # 3. Reinforcement Learning fallback
+        # 2. Reinforcement Learning fallback
         blended_values = {action: self.action_values[action] + self.regrets[action] for action in const.CHOICES[1:]}
         max_value = max(blended_values.values())
         normalized_values = {action: value / max_value if max_value != 0 else value for action,value in blended_values.items()}
@@ -123,7 +119,6 @@ class CombinedStrategy(Strategy):
             const.CHOICES[3]: scissors_count / total_moves
         }
 
-    def game_theory_action(self, human_probs):
         """Determines the best response based on human move probabilities."""
         payoff_matrix = {
             const.CHOICES[1]: {  # Rock

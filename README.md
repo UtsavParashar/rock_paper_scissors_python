@@ -1,17 +1,19 @@
 # Rock-Paper-Scissors Game
 
-A production-level Python implementation of the Rock-Paper-Scissors game with an intelligent AI that learns and adapts to human moves.
+A production-level Python implementation of the Rock-Paper-Scissors game with an intelligent model that learns and adapts to human moves.
+
+
 
 ## Features
 
-* **Intelligent AI:** Employs a combined Reinforcement Learning and Regret Matching strategy for adaptive gameplay.
-* **Pre-committed Computer Choice:** Ensures fairness by determining the computer's choice before the human player makes a move.
-* **Modular and Extensible:** Designed with a clear separation of concerns, making it easy to add new features or modify existing ones.
-* **Industry Standard Directory Structure:** Follows industry best practices for code organization and maintainability.
-* **Error Handling and Validation:** Implements robust error handling and input validation to prevent crashes.
-* **Memory Efficient and Fast:** Uses lightweight data structures and efficient algorithms for optimal performance.
-* **Unit-Tested:** Includes a comprehensive suite of unit tests to ensure robustness and reliability.
-* **Asynchronous Operations:** Utilizes `asyncio` and `ThreadPoolExecutor` for handling multiple tasks concurrently, improving responsiveness.
+- **Engaging Gameplay:** Play the classic game of Rock-Paper-Scissors against an intelligent AI opponent.
+- **Adaptive AI:** The AI uses a combined strategy leveraging Reinforcement Learning, Markov Models, and Game Theory to learn and adapt to your playing style.
+- **Reinforcement Learning:** The AI learns from past games, improving its decision-making over time through a Q-learning approach.
+- **Markov Model Prediction:** The AI analyzes your move history using a Markov model to predict your next move based on patterns.
+- **Customizable History Length:** Adjust the length of the move history used by the AI to influence its predictive capabilities.
+- **Exploration vs. Exploitation:** Balances exploration of new strategies with exploitation of learned patterns for optimal performance.
+- **Detailed Game Output:** View a clear record of each round, including your choice, the AI's choice, and the outcome.
+- **Comprehensive Unit Tests:** Ensures code reliability and correctness through a suite of automated tests.
 
 ## Design Choices
 
@@ -19,8 +21,19 @@ A production-level Python implementation of the Rock-Paper-Scissors game with an
 *   **Reinforcement Learning and Regret Matching:** The AI employs a combined strategy to adapt to the player's behavior.
 *   **Asynchronous Operations:** The game logic is designed to support asynchronous operations, allowing for better responsiveness and scalability.
 
+## Python Scripts in `src/`
+
+-   **`__init__.py`**: An empty file that signifies the `src` directory is a Python package, allowing its modules to be imported. It follows Python's packaging conventions, enabling modular code organization.
+-   **`game.py`**: Contains the main game logic, orchestrating the game flow between the human player and the AI. It uses the Strategy pattern to allow different AI strategies to be plugged in and the Facade pattern to simplify the interaction with underlying modules.
+-   **`player.py`**: Defines the `Player` class, representing either the human or computer player, storing their choices and history. It is a simple data class, following object-oriented principles for encapsulation of player-related data and actions.
+-   **`rules.py`**: Implements the game rules to determine the winner of each round based on the players' choices. It uses a straightforward conditional logic, following best practices for clear and maintainable code.
+-   **`strategy.py`**: Defines the AI's strategy using a combination of Reinforcement Learning, Markov Model. It leverages the Strategy pattern, and adopts a combined approach to make the AI competitive and adaptable.
+-   **`constants.py`**: Stores constant values used throughout the project, such as player choices and outcomes. It follows the best practice of centralizing configuration to improve maintainability.
+
+
+
 ## Dependencies
-Python 3.9+
+Python 3.7+
 All package dependencies are listed in the `requirements.txt` file.
 
 ## Setup Instructions
@@ -32,13 +45,7 @@ All package dependencies are listed in the `requirements.txt` file.
     $env:PYTHONPATH = $pwd
     ```
 
-2. Run the setup script:
-
-    ```
-    python setup.py install
-    ```
-
-3. Create a virtual environment (recommended):
+2. Create a virtual environment (recommended/optional):
 
     ```
     python -m venv venv
@@ -46,7 +53,7 @@ All package dependencies are listed in the `requirements.txt` file.
     venv\Scripts\activate.bat  # On Windows
     ```
 
-4. Install additional dependencies if needed:
+3. Install additional dependencies if needed:
 
     ```
     pip install -r requirements.txt
@@ -54,13 +61,51 @@ All package dependencies are listed in the `requirements.txt` file.
 
 5. Run the game
     ```
-    python 
+    python src/game.py
     ```
+
+## Testing
+
+To run the unit tests for this project:
+
+1. Navigate to the root directory of the project (the one containing the `tests` folder).
+```
+    cd rock_paper_scissors
+```
+
+2. Run the tests using `pytest`:
+```
+    python -m pytest -v
+```
+
+## `simulate.py`
+
+This script runs multiple simulations of the Rock-Paper-Scissors game with varying numbers of rounds, providing data on win rates. It leverages parallel processing to speed up simulations and presents results in a Pandas DataFrame.
+
+1. Run simulate.py
+1. Navigate to the root directory of the project (the one containing the `tests` folder).
+```
+    cd rock_paper_scissors
+```
+
+2. Run the tests using `pytest`:
+```
+    python simulate.py
+```
+Sample Test Results
+   num_rounds  human_wins  computer_wins  ties human_win_percentage computer_win_percentage tie_percentage
+0          30          12             11     7               40.00%                  36.67%         23.33%
+1         300          92             97   111               30.67%                  32.33%         37.00%
+2           3           1              1     1               33.33%                  33.33%         33.33%
+3        1000         329            326   345               32.90%                  32.60%         34.50%
+4        3000         995            980  1025               33.17%                  32.67%         34.17%
+
+
 ## Future Enhancements
 
 *   Implement a graphical user interface (GUI).
 *   Support network play for multiple human players.
-*   Add more sophisticated AI strategies.
+*   Add more sophisticated strategies.
 *   Incorporate user profiles and personalized game experiences.
 
 
