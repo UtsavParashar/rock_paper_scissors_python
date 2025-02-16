@@ -1,6 +1,7 @@
 # Rock-Paper-Scissors Game
 
-A production-level Python implementation of the Rock-Paper-Scissors game for an human to play against an intelligent model using Reinforcement learning and Markov model that learns and adapts to human moves.
+A production-level Python implementation of the Rock-Paper-Scissors game for an human to play against an intelligent model using Reinforcement learning and Markov model that learns and adapts to human moves. 
+Game Theory strategy could also be used along with existing strategies for better user engagement game.
 
 
 ## Features
