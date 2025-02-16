@@ -96,16 +96,11 @@ To run the unit tests for this project:
 
 This script runs multiple simulations of the Rock-Paper-Scissors game with varying numbers of rounds, providing data on win rates. It leverages parallel processing to speed up simulations and presents results in a Pandas DataFrame.
 
-1. Run simulate.py
-1. Navigate to the root directory of the project (the one containing the `tests` folder).
-```
-    cd rock_paper_scissors_python
-```
-
-2. Run the tests using `pytest`:
+1. Run simulate.py.
 ```
     python simulate.py
 ```
+
 Sample Test Results
    num_rounds  human_wins  computer_wins  ties human_win_percentage computer_win_percentage tie_percentage
 0          30          12             11     7               40.00%                  36.67%         23.33%
