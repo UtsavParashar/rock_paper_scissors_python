@@ -55,6 +55,7 @@ class CombinedStrategy(Strategy):
         
         return max(normalized_values.keys(), key=lambda x: normalized_values[x])
 
+    # Reinforcement Learning helper
     def update_rewards(self, computer_choice, player_choice, history):
         """Updates the strategy based on the outcome of the round."""
         reward = self.get_reward(computer_choice, player_choice)
@@ -72,6 +73,7 @@ class CombinedStrategy(Strategy):
             last_action = history[-2]
             self.markov_model[last_action][player_choice] += 1 # Train markov model on what the *player* did
 
+    # Reinforcement learning helper
     def get_reward(self, computer_choice, player_choice):
         """Calculates reward based on choices made."""
         if computer_choice == player_choice:
@@ -84,6 +86,7 @@ class CombinedStrategy(Strategy):
 
         return const.LOSE
 
+    # Markov helper
     def predict_human_move(self, history):
         """Predicts the human player's next move using the Markov model."""
         if len(history) < 1:  # Check if there is enough history to make a prediction
@@ -93,6 +96,7 @@ class CombinedStrategy(Strategy):
         predicted_move = max(self.markov_model[last_move], key=self.markov_model[last_move].get, default=None)
         return predicted_move
 
+    # Markov helper
     def counter_action(self, predicted_move):
         """Chooses an action to counter the predicted move."""
         if predicted_move == const.CHOICES[1]:  # Rock
@@ -101,44 +105,3 @@ class CombinedStrategy(Strategy):
             return const.CHOICES[3]  # Choose Scissors
         elif predicted_move == const.CHOICES[3]:  # Scissors
             return const.CHOICES[1]  # Choose Rock
-
-    def estimate_human_probs(self, history):
-        """Estimate probabilities for the human to choose rock, paper, or scissors."""
-        rock_count = history.count(const.CHOICES[1])
-        paper_count = history.count(const.CHOICES[2])
-        scissors_count = history.count(const.CHOICES[3])
-
-        total_moves = len(history)
-
-        if total_moves == 0:
-            return {const.CHOICES[1]: 1/3, const.CHOICES[2]: 1/3, const.CHOICES[3]: 1/3}
-
-        return {
-            const.CHOICES[1]: rock_count / total_moves,
-            const.CHOICES[2]: paper_count / total_moves,
-            const.CHOICES[3]: scissors_count / total_moves
-        }
-
-        """Determines the best response based on human move probabilities."""
-        payoff_matrix = {
-            const.CHOICES[1]: {  # Rock
-                const.CHOICES[1]: 0, const.CHOICES[2]: -1, const.CHOICES[3]: 1
-            },
-            const.CHOICES[2]: {  # Paper
-                const.CHOICES[1]: 1, const.CHOICES[2]: 0, const.CHOICES[3]: -1
-            },
-            const.CHOICES[3]: {  # Scissors
-                const.CHOICES[1]: -1, const.CHOICES[2]: 1, const.CHOICES[3]: 0
-            }
-        }
-
-        expected_values = {}
-        for my_action in const.CHOICES[1:]:
-            expected_value = sum(
-                payoff_matrix[my_action][opponent_action] * human_probs.get(opponent_action, 0)
-                for opponent_action in const.CHOICES[1:]
-            )
-            expected_values[my_action] = expected_value
-        
-        best_action = max(expected_values, key=expected_values.get)
-        return best_action
